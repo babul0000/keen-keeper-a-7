@@ -1,8 +1,19 @@
-import Image from "next/image";
+import Banner from '@/components/banner/Banner';
+import Card from '@/components/card/Card';
+import HomePage from './home/page';
 
-export default function Home() {
-  return (
-   
-   <h1>hello</h1>
-  );
-}
+
+
+const page = ({ children}) => {
+    return (
+        <div>
+            <Banner/>
+            <Card/>
+            <main>
+                <HomePage/>
+            </main>
+        </div>
+    );
+};
+
+export default page;
