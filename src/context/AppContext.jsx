@@ -1,20 +1,21 @@
-
-
 "use client";
-import { createContext, useState } from "react";
+
+import { createContext, useState, useEffect } from "react";
 
 export const InstallAppsContext = createContext();
 
-const InstalledAppsProvider = ({ children }) => {
-    const [installedApps, setInstalledApps] = useState([]);
+export const InstalledAppsProvider = ({ children }) => {
+    const [timeline, setTimeline] = useState([]);
 
-    const data = {
-        installedApps,
-        setInstalledApps,
-    };
+    useEffect(() => {
+        fetch("/data.json")
+            .then((res) => res.json())
+            .then((data) => setTimeline(data))
+            .catch((err) => console.error(err));
+    }, []);
 
     return (
-        <InstallAppsContext.Provider value={data}>
+        <InstallAppsContext.Provider value={{ timeline, setTimeline }}>
             {children}
         </InstallAppsContext.Provider>
     );

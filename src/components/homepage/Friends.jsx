@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation';
 
 
 
-
 const Friends = ({ item }) => {
     const { id, picture, name, days_since_contact, tags, status } = item;
     const router = useRouter();
@@ -44,7 +43,7 @@ const Friends = ({ item }) => {
             <div className="flex flex-wrap justify-center gap-2 mb-6">
                 {tags.map((tag, index) => (
                     <span key={index}
-                        className="px-5 py-1.5 text-xs font-medium bg-[#CBFADB] text-gray-700 rounded-full "
+                        className="px-5 py-1.5 text-xs font-medium bg-[#CBFADB] text-gray-700 rounded-full hover:bg-gray-200 transition-colors"
                     >
                         {tag.toUpperCase()}
                     </span>
