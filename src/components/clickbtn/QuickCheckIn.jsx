@@ -4,12 +4,16 @@ import { useContext } from "react";
 import { InstallAppsContext } from "@/context/AppContext";
 import { MdWifiCalling3, MdTextsms } from "react-icons/md";
 import { FaVideo } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const QuickCheckIn = ({ app }) => {
     const { timeline, setTimeline } = useContext(InstallAppsContext);
 
     const handleAction = (type) => {
-        if (!app) return;
+        // toast.warning(`${app.name} is uninstalled!`);
+        // if (!app)
+        toast.success(`${app.name} is Added`);
+        
 
         const newInteraction = {
             ...app,

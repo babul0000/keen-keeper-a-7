@@ -12,11 +12,14 @@ const Friends = ({ item }) => {
         if (status === "overdue") return "bg-[#EF4444] text-white";
         if (status === "almost due") return "bg-[#EFAD44] text-white";
         return "bg-[#244D3F] text-white";
+
+        
     };
 
     return (
         <div
             onClick={() => router.push(`/home/${id}`)}
+            
 
             className="bg-white shadow-md rounded-lg p-6 border  border-gray-100 flex flex-col items-center text-center hover:border-1 hover:border-blue-200"
         >
