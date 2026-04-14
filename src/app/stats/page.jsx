@@ -32,24 +32,24 @@ export default function StatsPage() {
     const COLORS = ["#0ea5e9", "#22c55e", "#f97316"];
 
     return (
-        <main className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+        <main className="min-h-screen bg-gray-50 text-black py-5">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div className="mb-12">
-                    <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                <div className="mb-5">
+                    <h1 className="text-4xl font-bold  mb-2">
                         Friendship Analytics
                     </h1>
                 </div>
 
                 
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                <div className="bg-white bg-slate-100 rounded-lg shadow-lg p-8">
+                    <h2 className="text-2xl font-bold text-black  dark:text-white mb-6">
                         By Interaction Type
                     </h2>
 
                     {chartData.length === 0 ? (
-                        <div className="text-center py-12">
-                            <p className="text-gray-500 dark:text-gray-400 mb-4">
+                        <div className="text-center py-8">
+                            <p className="text-gray-500 dark:text-gray-900 mb-4">
                                 No interactions recorded yet. Start by checking in with your friends!
                             </p>
                         </div>

@@ -18,7 +18,7 @@ const Friends = ({ item }) => {
         <div
             onClick={() => router.push(`/home/${id}`)}
 
-            className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex flex-col items-center text-center"
+            className="bg-white shadow-md rounded-lg p-6 border  border-gray-100 flex flex-col items-center text-center hover:border-1 hover:border-blue-200"
         >
             
             <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-white shadow-md">

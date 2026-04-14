@@ -30,7 +30,7 @@ const QuickCheckIn = ({ app }) => {
                 
                 <button
                     onClick={() => handleAction("Call")}
-                    className="bg-gray-100 rounded-xl h-24 flex flex-col items-center justify-center hover:bg-green-50"
+                    className="bg-gray-100 rounded-xl h-24 flex flex-col items-center justify-center hover:bg-green-200"
                 >
                     <MdWifiCalling3 className="text-3xl text-gray-600" />
                     <span>Call</span>
@@ -38,7 +38,7 @@ const QuickCheckIn = ({ app }) => {
 
                 <button
                     onClick={() => handleAction("Text")}
-                    className="bg-gray-100 rounded-xl h-24 flex flex-col items-center justify-center"
+                    className="bg-gray-100 rounded-xl h-24 flex flex-col items-center hover:bg-green-200 justify-center"
                 >
                     <MdTextsms className="text-3xl text-gray-600" />
                     <span>Text</span>
@@ -46,7 +46,7 @@ const QuickCheckIn = ({ app }) => {
 
                 <button
                     onClick={() => handleAction("Video")}
-                    className="bg-gray-100 rounded-xl h-24 flex flex-col items-center justify-center"
+                    className="bg-gray-100 rounded-xl h-24 flex flex-col hover:bg-green-200 items-center justify-center"
                 >
                     <FaVideo className="text-3xl text-gray-600" />
                     <span>Video</span>
