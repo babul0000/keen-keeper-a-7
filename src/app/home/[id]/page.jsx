@@ -3,47 +3,45 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FaArchive } from "react-icons/fa";
 import { LiaSnapchatGhost } from "react-icons/lia";
 
-
-const appPromise = async () => {
-
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ||
-        (typeof window !== "undefined" ? window.location.origin : "http://localhost:3000");
-
-    try {
-        const res = await fetch(`${baseUrl}/data.json`, {
-            cache: 'no-store'
-        });
-
-        if (!res.ok) return [];
-        return await res.json();
-    } catch (error) {
-        console.error("loaded problem:", error);
-        return [];
-    }
-};
-
 const PageId = async ({ params }) => {
-
+   
     const { id } = await params;
-    const apps = await appPromise();
-    const app = apps.find((item) => String(item.id) === id);
 
-    if (!app) return <div className="p-10 text-center text-red-500 font-bold">data is not found</div>;
+
+    const res = await fetch("https://keen-kepper-phi.vercel.app/data.json", {
+        cache: "no-store", 
+    });
+
+    const apps = await res.json();
+
+ 
+    const app = apps.find((item) => String(item.id) === String(id));
+
+
+    if (!app) {
+        return (
+            <div className="p-10 text-center">
+                <h1 className="text-red-500 font-bold">Data is not found for ID: {id}</h1>
+            </div>
+        );
+    }
+
 
     const { picture, name, email, days_since_contact, status, tags, bio, goal, next_due_date } = app;
 
+
     const getStatusColor = (status) => {
         const s = status?.toLowerCase();
-        if (s === "overdue") return "bg-[#EF4444] text-white";
-        if (s === "almost due") return "bg-[#EFAD44] text-white";
-        return "bg-[#244D3F] text-white";
+        if (s === "overdue") return "bg-red-500 text-white";
+        if (s === "almost due") return "bg-orange-400 text-white";
+        return "bg-emerald-700 text-white";
     };
 
     return (
         <div className="min-h-screen bg-gray-100 p-6 ">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                {/* প্রোফাইল কার্ড */}
+                
                 <div className="space-y-4">
                     <div className="bg-white p-6 rounded-xl text-center shadow">
                         <img
