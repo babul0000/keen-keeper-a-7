@@ -19,7 +19,7 @@ const Friends = ({ item }) => {
     return (
         <div
             onClick={() => router.push(`/home/${id}`)}
-            
+
 
             className="bg-white shadow-md rounded-lg p-6 border  border-gray-100 flex flex-col items-center text-center hover:border-1 hover:border-blue-200"
         >
@@ -32,12 +32,12 @@ const Friends = ({ item }) => {
                 />
             </div>
 
-            {/* Name */}
+            
             <h2 className="mt-5 text-2xl font-semibold text-gray-900">
                 {name}
             </h2>
 
-            {/* Days ago */}
+            
             <p className="text-gray-500 text-lg mt-1 mb-4">
                 {days_since_contact}d ago
             </p>

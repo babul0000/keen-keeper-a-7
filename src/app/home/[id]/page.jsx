@@ -5,23 +5,37 @@ import { LiaSnapchatGhost } from "react-icons/lia";
 
 
 const appPromise = async () => {
-    const res = await fetch("http://localhost:3000/data.json");
-    const data = await res.json();
-    return data;
+
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ||
+        (typeof window !== "undefined" ? window.location.origin : "http://localhost:3000");
+
+    try {
+        const res = await fetch(`${baseUrl}/data.json`, {
+            cache: 'no-store'
+        });
+
+        if (!res.ok) return [];
+        return await res.json();
+    } catch (error) {
+        console.error("loaded problem:", error);
+        return [];
+    }
 };
 
 const PageId = async ({ params }) => {
-    const apps = await appPromise();
+
     const { id } = await params;
+    const apps = await appPromise();
     const app = apps.find((item) => String(item.id) === id);
 
-    if (!app) return <div className="p-6 text-center text-red-500 font-bold">not data </div>;
+    if (!app) return <div className="p-10 text-center text-red-500 font-bold">data is not found</div>;
 
     const { picture, name, email, days_since_contact, status, tags, bio, goal, next_due_date } = app;
 
     const getStatusColor = (status) => {
-        if (status === "overdue") return "bg-[#EF4444] text-white";
-        if (status === "almost due") return "bg-[#EFAD44] text-white";
+        const s = status?.toLowerCase();
+        if (s === "overdue") return "bg-[#EF4444] text-white";
+        if (s === "almost due") return "bg-[#EFAD44] text-white";
         return "bg-[#244D3F] text-white";
     };
 
@@ -29,7 +43,7 @@ const PageId = async ({ params }) => {
         <div className="min-h-screen bg-gray-100 p-6 ">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 
-
+                {/* প্রোফাইল কার্ড */}
                 <div className="space-y-4">
                     <div className="bg-white p-6 rounded-xl text-center shadow">
                         <img
@@ -52,20 +66,19 @@ const PageId = async ({ params }) => {
                         <p className="text-xs text-gray-400 mt-1">{email}</p>
                     </div>
 
-                    <button className="w-full bg-white p-3 rounded-lg shadow flex items-center justify-center gap-2">
+                    <button className="w-full bg-white p-3 rounded-lg shadow flex items-center justify-center gap-2 font-medium">
                         <LiaSnapchatGhost /> Snooze 2 Weeks
                     </button>
-                    <button className="w-full bg-white p-3 rounded-lg shadow flex items-center justify-center gap-2">
+                    <button className="w-full bg-white p-3 rounded-lg shadow flex items-center justify-center gap-2 font-medium">
                         <FaArchive /> Archive
                     </button>
-                    <button className="w-full bg-white p-3 rounded-lg shadow text-red-500 flex items-center justify-center gap-2">
+                    <button className="w-full bg-white p-3 rounded-lg shadow text-red-500 flex items-center justify-center gap-2 font-medium">
                         <AiOutlineDelete /> Delete
                     </button>
                 </div>
 
-            
+
                 <div className="md:col-span-2 space-y-6">
-                    {/* Stats */}
                     <div className="grid grid-cols-3 gap-4">
                         <div className="bg-white p-4 rounded-lg text-center shadow">
                             <h2 className="text-xl font-bold">{days_since_contact}</h2>
@@ -77,19 +90,25 @@ const PageId = async ({ params }) => {
                         </div>
                         <div className="bg-white p-4 rounded-lg text-center shadow">
                             <h2 className="text-sm font-bold">{new Date(next_due_date).toDateString()}</h2>
-                            <p className="text-xs text-gray-500">Next Due</p>
+                            <p className="text-xs text-gray-400">Next Due</p>
                         </div>
                     </div>
 
-                    
+                    <div className="bg-white p-4 rounded-lg shadow">
+                        <div className="flex justify-between items-center mb-2">
+                            <h1 className="font-semibold text-gray-700">Relationship Goal</h1>
+                            <button className="text-xs bg-gray-100 px-3 py-1 rounded hover:bg-gray-200">Edit</button>
+                        </div>
+                        <h2 className="font-bold text-lg text-gray-800">Connect every {goal} days</h2>
+                    </div>
+
                     <QuickCheckIn app={app} />
 
-                
                     <div className="bg-white p-4 rounded-lg shadow">
                         <h2 className="font-semibold mb-3">Recent Interactions</h2>
                         <div className="space-y-2">
-                            <div className="flex justify-between text-sm">
-                                <span>Text</span>
+                            <div className="flex justify-between text-sm border-b pb-2">
+                                <span className="text-gray-700 font-medium">Text</span>
                                 <span className="text-gray-400">Jan 28</span>
                             </div>
                         </div>

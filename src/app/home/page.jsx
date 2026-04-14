@@ -1,30 +1,28 @@
 import Friends from '@/components/homepage/Friends';
 
+import friendsData from '@/../public/data.json'; 
 
-const HomePage = async() => {
-
-    const res = await fetch("http://localhost:3000/data.json");
-    const data = await res.json();
-    console.log(data);
+const HomePage = async () => {
     
+    
+    
+    console.log(friendsData); 
+
     return (
         <>
-            
+            <div className='w-9/12 mx-auto mt-10'>
+                <h1 className='text-2xl font-bold mb-5'>Your Friends</h1>
 
-
-            <div className='w-9/12 mx-auto'>
-                <h1 className='text-2xl font-bold'>Your Friends</h1>
-
-                <div className='grid grid-cols-4 gap-5'>
+                <div className='grid grid-cols-1 md:grid-cols-4 gap-5'>
                     {
-                        data.map(item => <Friends key={item.id} item={item}></Friends>)
+                        
+                        friendsData.map(item => (
+                            <Friends key={item.id} item={item} />
+                        ))
                     }
                 </div>
             </div>
-
-
         </>
-
     );
 };
 
