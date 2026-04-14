@@ -1,5 +1,5 @@
 import Friends from '@/components/homepage/Friends';
-import React from 'react';
+
 
 const HomePage = async() => {
 

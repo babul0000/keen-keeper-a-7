@@ -1,24 +1,25 @@
 "use client"
-import React from 'react';
+
 import { useRouter } from 'next/navigation';
+
+
+
 
 const Friends = ({ item }) => {
     const { id, picture, name, days_since_contact, tags, status } = item;
     const router = useRouter();
 
     const getStatusColor = (status) => {
-        if (status === "overdue") return "bg-red-500 text-white";
-        if (status === "almost due") return "bg-orange-500 text-white";
-        return "bg-emerald-500 text-white";
+        if (status === "overdue") return "bg-[#EF4444] text-white";
+        if (status === "almost due") return "bg-[#EFAD44] text-white";
+        return "bg-[#244D3F] text-white";
     };
 
     return (
         <div
             onClick={() => router.push(`/home/${id}`)}
 
-            className="bg-white shadow-xl rounded-3xl p-6 border border-gray-100 
-                    hover:shadow-2xl hover:border-blue-300 transition-all duration-300 
-                    cursor-pointer flex flex-col items-center text-center"
+            className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex flex-col items-center text-center"
         >
             
             <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-white shadow-md">
@@ -42,10 +43,8 @@ const Friends = ({ item }) => {
             
             <div className="flex flex-wrap justify-center gap-2 mb-6">
                 {tags.map((tag, index) => (
-                    <span
-                        key={index}
-                        className="px-5 py-1.5 text-xs font-medium bg-gray-100 text-gray-700 
-                                rounded-full hover:bg-gray-200 transition-colors"
+                    <span key={index}
+                        className="px-5 py-1.5 text-xs font-medium bg-[#CBFADB] text-gray-700 rounded-full "
                     >
                         {tag.toUpperCase()}
                     </span>
@@ -53,7 +52,7 @@ const Friends = ({ item }) => {
             </div>
 
             
-            <div className={`w-full py-3 px-6 text-sm font-semibold rounded-2xl 
+            <div className={`py-1 px-2 text-sm font-semibold rounded-2xl 
                 ${getStatusColor(status)}`}>
 
                 {status === "overdue" && "Overdue"}
