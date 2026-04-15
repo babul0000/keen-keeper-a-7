@@ -1,15 +1,15 @@
 
+project name : KeenKeeper
 
-
-Project Description
+Project Description :
 This app helps users keep track of their friends and reminds them when it's time to reach out. It's like a personal assistant for maintaining your social circle.
 
 Technologies Used
-React / Next.js
+Next.js
 
 Tailwind CSS & daisyui
 
-Recharts (for analytics)
+Recharts 
 
 Vercel (for hosting)
 

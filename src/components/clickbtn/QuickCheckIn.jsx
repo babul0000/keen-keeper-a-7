@@ -10,8 +10,7 @@ const QuickCheckIn = ({ app }) => {
     const { timeline, setTimeline } = useContext(InstallAppsContext);
 
     const handleAction = (type) => {
-        // toast.warning(`${app.name} is uninstalled!`);
-        // if (!app)
+        
         toast.success(`${app.name} is Added`);
         
 

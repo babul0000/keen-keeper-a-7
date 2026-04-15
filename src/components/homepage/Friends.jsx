@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 
 const Friends = ({ item }) => {
     const { id, picture, name, days_since_contact, tags, status } = item;
+    
     const router = useRouter();
 
     const getStatusColor = (status) => {
