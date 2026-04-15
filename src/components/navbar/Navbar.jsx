@@ -32,7 +32,7 @@ const Navbar = () => {
                 <div className="flex justify-between   w-11/12 mx-auto">
 
                     <div className="">
-                        <button className='text-2xl font-bold'>Keen<span className='text-green-800'>Keeper</span></button>
+                        <Link href="./"><button className='text-2xl font-bold'>Keen<span className='text-green-800'>Keeper</span></button></Link>
                     </div>
                     <div className="flex ">
                         <ul className=" flex gap-4 items-center">
