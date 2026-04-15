@@ -26,7 +26,7 @@
   {
     "id": 3,
     "name": "Lisa Nakamura",
-    "picture": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&q=80&w=600&fit=crop",
+    "picture": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&q=80&w=600&fit=crop",
     "email": "lisa.nakamura@email.com",
     "days_since_contact": 62,
     "status": "overdue",
@@ -74,7 +74,7 @@
   {
     "id": 7,
     "name": "Olivia Thompson",
-    "picture": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&q=80&w=600&fit=crop",
+    "picture": "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&q=80&w=600&fit=crop",
     "email": "olivia.t@email.com",
     "days_since_contact": 35,
     "status": "overdue",
@@ -110,7 +110,7 @@
   {
     "id": 10,
     "name": "Daniel Kim",
-    "picture": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&q=80&w=600&fit=crop",
+    "picture": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&q=80&w=600&fit=crop",
     "email": "daniel.kim@email.com",
     "days_since_contact": 45,
     "status": "overdue",
