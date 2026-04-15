@@ -23,17 +23,17 @@ export default function StatsPage() {
         ).length;
 
         return [
-            { name: "Calls", value: calls },
-            { name: "Texts", value: texts },
-            { name: "Videos", value: videos },
+            { name: "Calls", value: calls, fill: '#0088FE' },
+            { name: "Texts", value: texts, fill: '#00C49F' },
+            { name: "Videos", value: videos, fill: '#FFBB28' },
         ].filter((item) => item.value > 0);
     }, [timeline]);
 
     const COLORS = ["#0ea5e9", "#22c55e", "#f97316"];
 
     return (
-        <main className="min-h-screen bg-gray-50 text-black py-5">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="min-h-screen bg-gray-50 text-black py-2">
+            <div className="max-w-5xl mx-auto px-2">
                 
                 <div className="mb-5">
                     <h1 className="text-4xl font-bold  mb-2">
@@ -59,13 +59,17 @@ export default function StatsPage() {
                                 <PieChart>
                                     <Pie
                                         data={chartData}
+                                        innerRadius="80%"
+                                        outerRadius="100%"
+                                        cornerRadius="50%"
+                                        paddingAngle={5}
                                         cx="50%"
                                         cy="50%"
                                         labelLine={false}
                                         label={({ name, value, percent }) =>
                                             `${name}: ${value} (${(percent * 100).toFixed(0)}%)`
                                         }
-                                        outerRadius={120}
+                                        // outerRadius={120}
                                         fill="#8884d8"
                                         dataKey="value"
                                     >
@@ -102,3 +106,4 @@ export default function StatsPage() {
         </main>
     );
 }
+
