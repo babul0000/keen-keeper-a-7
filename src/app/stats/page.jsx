@@ -32,8 +32,8 @@ export default function StatsPage() {
     const COLORS = ["#0ea5e9", "#22c55e", "#f97316"];
 
     return (
-        <main className="min-h-screen bg-gray-50 text-black py-2">
-            <div className="max-w-5xl mx-auto px-2">
+        <main className="min-h-screen bg-gray-50 text-black ">
+            <div className="max-w-4xl mx-auto ">
                 
                 <div className="mb-5">
                     <h1 className="text-4xl font-bold  mb-2">
@@ -42,14 +42,14 @@ export default function StatsPage() {
                 </div>
 
                 
-                <div className="bg-white bg-slate-100 rounded-lg shadow-lg p-8">
+                <div className="bg-white bg-slate-100 rounded-lg shadow-lg p-6">
                     <h2 className="text-2xl font-bold text-black  dark:text-white mb-6">
                         By Interaction Type
                     </h2>
 
                     {chartData.length === 0 ? (
-                        <div className="text-center py-8">
-                            <p className="text-gray-500 dark:text-gray-900 mb-4">
+                        <div className="text-center py-5">
+                            <p className="text-black dark:text-gray-900 mb-4">
                                 No interactions recorded yet. Start by checking in with your friends!
                             </p>
                         </div>
@@ -62,14 +62,14 @@ export default function StatsPage() {
                                         innerRadius="80%"
                                         outerRadius="100%"
                                         cornerRadius="50%"
-                                        paddingAngle={5}
+                                        paddingAngle={8}
                                         cx="50%"
                                         cy="50%"
                                         labelLine={false}
                                         label={({ name, value, percent }) =>
                                             `${name}: ${value} (${(percent * 100).toFixed(0)}%)`
                                         }
-                                        // outerRadius={120}
+                                        
                                         fill="#8884d8"
                                         dataKey="value"
                                     >
@@ -83,10 +83,10 @@ export default function StatsPage() {
                                     <Tooltip
                                         formatter={(value) => `${value} interactions`}
                                         contentStyle={{
-                                            backgroundColor: "#1f2937",
+                                            backgroundColor: "#1f2957",
                                             border: "none",
                                             borderRadius: "8px",
-                                            color: "#fff",
+                                            color: "#ffffff",
                                         }}
                                     />
                                     <Legend
@@ -94,7 +94,7 @@ export default function StatsPage() {
                                             paddingTop: "20px",
                                         }}
                                         formatter={(value) => (
-                                            <span className="text-gray-700 dark:text-gray-200">{value}</span>
+                                            <span className="text-black dark:text-gray-800">{value}</span>
                                         )}
                                     />
                                 </PieChart>
